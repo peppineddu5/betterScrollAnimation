@@ -43,6 +43,7 @@ Al constructor di `betterScrollAnimation` puoi passargli un oggetto con tutti de
 | rootMargin   | `stringa`        | "0px 0px 0px 0px"      |Il margine di entrata per l'animazione. Questo può essere negativo o positivo ed è espresso in pixel, inoltre puoi impostare il margine in ogni direzione |
 | threshold   | `numero`        | 0.5      |Questo valore srve a dire quando dare la classe all'elemento DOM che si vuole. 0.5= appena l'elemento viene visualizzato a metà parte la classe, oppure se si mette 1.0 vuol dire che darà la classe impostata appena l'elemento si vedrà al 100%, ovviamente questo è tutto relativo anche al margine che si mette|
 | elToScroll   | `Window` | HTMLElement       | l'elemento che controllerà lo scroll      |L'elemento al quale vedrà se allo scroll esce dalla vista dell'utente per rimuovere la classe|
+| defaultClass |`string`| "active"      |Serve ad inserire una classe di default nel caso non venisse specificata|
 | errorYD |`numero`| 0      |errore dell'asse dell Y per quando scende più giù dell'elemento|
 | errorYU |`numero`| 0      |errore dell'asse dell Y per quando sale più su dell'elemento|
 | errorXD |`numero`| 0      |errore dell'asse dell X per quando va più a destra dell'elemento|
@@ -52,6 +53,7 @@ Al constructor di `betterScrollAnimation` puoi passargli un oggetto con tutti de
 ## Come far funzionare la libreria?
 Dopo aver creato l'istanza della classe betterScrollAnimation bisogna fare attenzione al nome e al prefisso che avete scelto, infatti se ne avete inserito uno custom dovrete attenervi a quello da voi impostato altrimenti il default per il nome é bescan mentre il prefisso é bsa-.<br>
 Guardate questo esempio
+html:
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -69,6 +71,7 @@ Guardate questo esempio
 </body>
 </html>
 ```
+css:
 ```css
 body {
     display: flex;
@@ -110,3 +113,11 @@ Automaticamente la libreria, allo scroll aggiunge la classe `active` ma se ne vo
 In fine gli ultimi due attributi.<br>
 Il primo che si compone con il `prefisso+SA` aggiungerà la classe da voi scelta/quella di default e non la toglierà più quindi smette di ascoltare quell'elemento.<br>
 In fine c'è il `prefisso+OU` che toglierà la classe solo quando l'utente salirà più su dell'elemento.<br>
+
+Ora vediamo tutti gli attributi che possono essere inseriti
+| Nome dell'attributo      | Tipo |Predefinito     |Descrizione
+| :----:        |    :----:   |          :----: |         :----: |
+| bescan \|\| option.name      | `stringa`     | "custom"   |Questo attributo per il momento serve solo a dire alla libreria di ascoltare questo HTMLElement|
+| bsa-OU \|\| option.prefix + OU     | tutto     | niente   |Questo attributo serve per togliere la classe solo quando sale più in alto e non quando scende più in basso|
+| bsa-SA \|\| option.prefix + SA     | tutto     | niente   |Questo attributo ad aggiungere la classe e non toglierlà più|
+| bsa-delay \|\| option.prefix + delay     | numero     | 0   |Questo attributo aggiunge un delay prima di aggiungere la classe|
