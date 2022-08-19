@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    margin-top: 50vh;
+    color: white;
+    display: grid;
+    place-items: center;
+}
+
+[bescan] {
+    transition: 0.8s;
+}
+
+.active {
+    background-color: blue;
+}
+
+[bsa-tranClass="fade-up"] {
+    transform: translateX(20px);
+    opacity: 0%;
+}
+
+.fade-up {
+    transform: translateX(0);
+    opacity: 100%;
+    background-color: blue;
+}
+
+.horizontal-scroll-wrapper {
+    display: block;
+    width: 50vh;
+    max-height: 90vw;
+    margin: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transform: rotate(-90deg) translateY(-60vw);
+    transform-origin: right top;
+}
+.horizontal-scroll-wrapper .box {
+    margin-top: 80vh;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./src/style.css">
+  <title>Vite + TS</title>
+</head>
+
+<body>
+  <div class="box" bescan>Only bescan</div>
+  <div class="box" bescan bsa-tranClass="fade-up" bsa-OU>bsa-OU</div>
+  <div class="box" bescan bsa-tranClass="fade-up" bsa-SA>bsa-SA</div>
+  <div class="box" bescan bsa-tranClass="fade-up">bsa-tranClass="fade-up"</div>
+  <div class="horizontal-scroll-wrapper">
+
+    <div class="box" scroll-x>Only scroll-x</div>
+    <div class="box" scroll-x x-tranClass="fade-up" x-OU>x-OU</div>
+    <div class="box" scroll-x x-tranClass="fade-up" x-SA>x-SA</div>
+    <div class="box" scroll-x x-tranClass="fade-up">x-tranClass="fade-up"</div>
+  </div>
+  <!--bsa-SA disabilita appena finita l'animazione, bsa-OU per resettare l'animazione solo quando sale più in alto-->
+  <script lang="ts" type="module" src="/src/betterScrollAnimation.ts"></script>
+</body>
+
+</html>
