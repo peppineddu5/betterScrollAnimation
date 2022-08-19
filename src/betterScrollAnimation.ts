@@ -3,6 +3,7 @@ import "./style.css";
 class betterScrollAnimation {
     name: string = "bescan";
     prefix = "bsa-";
+    defClass = "active";
     constructor(option?: {
         name?: string;
         prefix?: string;
@@ -12,8 +13,10 @@ class betterScrollAnimation {
         errorXU?: number;
         errorYD?: number;
         errorYU?: number;
+        defaultClass?: string;
         elToScroll?: Window | HTMLElement;
     }) {
+        this.defClass = option?.defaultClass || this.defClass;
         this.name = option?.name || this.name;
         this.prefix = option?.prefix || this.prefix;
         const elHt = document.querySelectorAll<HTMLElement>(`[${this.name}]`);
@@ -137,7 +140,7 @@ class betterScrollAnimation {
             }
 
             setTimeout(() => {
-                classList.add(classTrans || "active");
+                classList.add(classTrans || this.defClass);
             }, delayms);
             return true;
         }
@@ -148,8 +151,8 @@ class betterScrollAnimation {
             `${this.prefix}tranClass`
         )?.value;
         if (this.haveDelay(attributes, classList, classTrans)) return;
-        if (!rem) return classList.add(classTrans || "active");
-        classList.remove(classTrans || "active");
+        if (!rem) return classList.add(classTrans || this.defClass);
+        classList.remove(classTrans || this.defClass);
     }
     delIndex(arr: Array<number>, index: number) {
         for (let i = index; i < arr.length - 1; i++) {
