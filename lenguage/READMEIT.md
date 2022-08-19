@@ -45,10 +45,10 @@ Al constructor di `betterScrollAnimation` puoi passargli un oggetto con tutti de
 | threshold   | `numero`        | 0.5      |Questo valore srve a dire quando dare la classe all'elemento DOM che si vuole. 0.5= appena l'elemento viene visualizzato a metà parte la classe, oppure se si mette 1.0 vuol dire che darà la classe impostata appena l'elemento si vedrà al 100%, ovviamente questo è tutto relativo anche al margine che si mette|
 | elToScroll   | `Window` | HTMLElement       | l'elemento che controllerà lo scroll      |L'elemento al quale vedrà se allo scroll esce dalla vista dell'utente per rimuovere la classe|
 | defaultClass |`string`| "active"      |Serve ad inserire una classe di default nel caso non venisse specificata|
-| errorYD |`numero`| 0      |errore dell'asse dell Y per quando scende più giù dell'elemento|
-| errorYU |`numero`| 0      |errore dell'asse dell Y per quando sale più su dell'elemento|
-| errorXD |`numero`| 0      |errore dell'asse dell X per quando va più a destra dell'elemento|
-| errorXU |`numero`| 0      |errore dell'asse dell X per quando va più a sinistra dell'elemento|
+| errorYD |`numero`| 0      |errore dell'asse delle Y per quando scende più giù dell'elemento|
+| errorYU |`numero`| 0      |errore dell'asse delle Y per quando sale più su dell'elemento|
+| errorXD |`numero`| 0      |errore dell'asse delle X per quando va più a destra dell'elemento|
+| errorXU |`numero`| 0      |errore dell'asse delle X per quando va più a sinistra dell'elemento|
 
 
 ## Come far funzionare la libreria?
