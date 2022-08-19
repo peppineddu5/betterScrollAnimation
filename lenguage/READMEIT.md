@@ -6,8 +6,8 @@
 
 piccola e veloce libreria per aggiungere delle classi allo scorrimento della pagina
 ### Lenguage
-- Italiano
-- English
+- [Italiano](https://github.com/peppineddu5/betterScrollAnimation-lite/edit/master/lenguage/READMEIT.md)
+- [English](https://github.com/peppineddu5/betterScrollAnimation-lite/)
 
 ## Come funziona questa libreria?
 La versione di questa libreria permette solo di aggiungere/togliere una classe allo scorrimento della pagina.<br>
