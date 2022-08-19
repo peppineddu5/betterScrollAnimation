@@ -4,6 +4,7 @@
 <img src="https://user-images.githubusercontent.com/59139796/185054324-83f07df2-a49d-476c-acd3-0cdd9ee6d9b1.png" style="width:15%;border-radius: 25px;">
 </p>
 
+piccola e veloce libreria per aggiungere delle classi allo scorrimento della pagina
 ### Lenguage
 - Italiano
 - English
