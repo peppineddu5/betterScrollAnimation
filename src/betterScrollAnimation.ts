@@ -119,10 +119,35 @@ class betterScrollAnimation {
         if (transition === "" || transition.toLowerCase() == "custom")
             return ifCall();
     }
+    haveDelay(
+        attributes: NamedNodeMap,
+        classList: DOMTokenList,
+        classTrans: string | undefined
+    ): boolean {
+        const isDelay = attributes.getNamedItem(`${this.prefix}delay`)?.value;
+        if (isDelay) {
+            const delayms = parseInt(isDelay);
+            if (isNaN(delayms)) {
+                console.error(
+                    `TypeError: The ${
+                        this.prefix + "delay"
+                    } attribute has not received a number`
+                );
+                return true;
+            }
+
+            setTimeout(() => {
+                classList.add(classTrans || "active");
+            }, delayms);
+            return true;
+        }
+        return false;
+    }
     setClass(attributes: NamedNodeMap, classList: DOMTokenList, rem?: string) {
         const classTrans = attributes.getNamedItem(
             `${this.prefix}tranClass`
         )?.value;
+        if (this.haveDelay(attributes, classList, classTrans)) return;
         if (!rem) return classList.add(classTrans || "active");
         classList.remove(classTrans || "active");
     }
