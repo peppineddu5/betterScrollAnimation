@@ -4,22 +4,18 @@
 <img src="https://user-images.githubusercontent.com/59139796/185054324-83f07df2-a49d-476c-acd3-0cdd9ee6d9b1.png" style="width:15%;border-radius: 25px;">
 </p>
 
-piccola e veloce libreria per aggiungere delle classi allo scorrimento della pagina
+
 ### Lenguage
 - [Italiano](https://github.com/peppineddu5/betterScrollAnimation-lite/edit/master/lenguage/READMEIT.md)
 - [English](https://github.com/peppineddu5/betterScrollAnimation-lite/)
 
-## How does this library work?
-The version of this library only allows you to add / remove a class on page scrolling. <br>
-To use this library 100% you need to know how it works. <br>
-In fact, to be the most efficient possible, it uses two eventListener and an `Intersection Observer` which are supported by all browsers except Explorer.
-The event listener for the scroll will make its calculations only when there are elements on the screen that are just waiting to exit the viewport to no longer be calculated and therefore optimize the library. <br>
-The second instead is for the resize of the page which is used to update the values of the width / height of the viewport that the previous listener will use. <br>
-Finally there is the `intersectionObserver` which is used for when the element enters the user's viewport and mainly serves to use as little as possible the scroll eventListener which otherwise risks becoming JavaScript heavy. <br>
-To better understand this library it is recommended to go to see the documentation on [intersectionObserver] (https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) and immediately afterwards you can go on with this documentation to resolve doubts. <br>
-### Why is ONLY intersectionObserver used?
-Unfortunately, if the class you use moves or resizes the object, this can go in a loop because at the beginning it sees the object well but then it disappears and then removes the class, later it puts it back but returning to the initial position this re-unleashes event and consequently the loop.
-Precisely so that this does not happen, I use the getBoundingClientRect () to see their position then when they come out I stop calculating them in such a way that it is as performing as possible.
+## What is ScrollAnimation-lite best for?
+For the moment this library only serves to add a class the item is displayed.
+And waiting for a more effective system to create javascript animations, I made a simple css file with some animations already made and if you want to know more go [here](#anim)
+Obviously there are parameters that allow you to choose what should be displayed to activate the class, the screen for when it exits.
+Also more then choose whether once the class has started it does not take off or something else (for more information read this section).
+A not insignificant advantage over this library is that it weighs less than 3kb.
+
 ## let's begin
 To use the library you need to download the `betterScrollAnimation.min.js` file and place it on a directory of your choice and import it just before the end of the body, then under that script you put another one and create the 'instance of the `betterScrollAnimation` class
 ```html
@@ -119,6 +115,53 @@ Now let's see all the attributes that can be entered
 | Name of the attribute     | Type |Default     |Description
 | :----:        |    :----:   |          :----: |         :----: |
 | bescan \|\| option.name      | `string`     | "custom"   |This attribute is for now only to tell the library to listen to this HTMLElement|
-| bsa-OU \|\| option.prefix + OU     | any     | niente   |This attribute is used to remove the class only when it goes higher and not when it goes lower|
-| bsa-SA \|\| option.prefix + SA     | any     | niente   |This attribute will add the class and will not remove it anymore|
+| bsa-OU \|\| option.prefix + OU     | any     | nothing   |This attribute is used to remove the class only when it goes higher and not when it goes lower|
+| bsa-SA \|\| option.prefix + SA     | any     | nothing   |This attribute will add the class and will not remove it anymore|
 | bsa-delay \|\| option.prefix + delay     | number     | 0   |This attribute adds a delay before adding the class|
+
+## How does this library work?
+The version of this library only allows you to add / remove a class on page scrolling. <br>
+To use this library 100% you need to know how it works. <br>
+In fact, to be the most efficient possible, it uses two eventListener and an `Intersection Observer` which are supported by all browsers except Explorer.
+The event listener for the scroll will make its calculations only when there are elements on the screen that are just waiting to exit the viewport to no longer be calculated and therefore optimize the library. <br>
+The second instead is for the resize of the page which is used to update the values of the width / height of the viewport that the previous listener will use. <br>
+Finally there is the `intersectionObserver` which is used for when the element enters the user's viewport and mainly serves to use as little as possible the scroll eventListener which otherwise risks becoming JavaScript heavy. <br>
+To better understand this library it is recommended to go to see the documentation on [intersectionObserver] (https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) and immediately afterwards you can go on with this documentation to resolve doubts. <br>
+### Why is ONLY intersectionObserver used?
+Unfortunately, if the class you use moves or resizes the object, this can go in a loop because at the beginning it sees the object well but then it disappears and then removes the class, later it puts it back but returning to the initial position this re-unleashes event and consequently the loop.
+Precisely so that this does not happen, I use the getBoundingClientRect () to see their position then when they come out I stop calculating them in such a way that it is as performing as possible.
+
+## <p id="anim">How to use pre-made animations </p>
+in addition to installing `betterScrollAnimation.min.js` we need to download the` betterScrollAnimationCSS.min.css` file and import it.
+Now we are ready to use the animations already present but this is only temporary, in fact I suggest you create them yourself as it can create scroll problems since it does not use the `position: relative` property but uses the transform.
+Also remember that we are developing a more efficient system for scroll animations.
+small example
+```html
+<! DOCTYPE html>
+<html lang = "en">
+<head>
+ <link rel = "stylesheet" href = "betterScrollAnimationCSS.min.css">
+</head>
+<body>
+     <div class = "box" bescan bsa-tranClass = "fade-up"> fade-up </div>
+    <script src = "./ betterScrollAnimation.min.js"> </script>
+    <script>
+        new betterScrollAnimation ()
+    </script>
+    <style>
+    .box {
+    width: 200px;
+    height: 200px;
+    margin-left: calc (50vw - 100px);
+    margin-top: 40vh;
+    color: white;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    font-size: 30px;
+}
+    </style>
+</body>
+</html>
+```
+if you want to see more examples you can visit the [site](https://peppineddu5.github.io/base-css-scrollAnimation/) or read the [source code](https://github.com/peppineddu5/betterScrollAnimation/tree/master/examples/simpleAnimation)
