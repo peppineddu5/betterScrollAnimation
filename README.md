@@ -24,8 +24,8 @@ To use the library you need to download the `betterScrollAnimation.min.js` file 
 <head>
 </head>
 <body>
- <!--Tutto il codice html-->
-<script src="PATH del file" ></script>
+ <!--All your HTML code-->
+<script src="PATH" ></script>
   <script>
     new betterScrollAnimation()
   </script>
